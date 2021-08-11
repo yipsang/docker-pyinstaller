@@ -47,7 +47,7 @@ jobs:
             ghcr.io/${{ env.IMAGE_NAME }}
           flavor: |
             latest=auto
-            suffix=-${matrix.python}-${matrix.architecture},onlatest=true
+            suffix=-${{matrix.python}}-${{matrix.architecture}},onlatest=true
       -
         name: Build and push
         id: docker_build
