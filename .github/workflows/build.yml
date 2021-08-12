@@ -3,7 +3,8 @@ name: Build Docker Images
 on: [push]
 
 env:
-  IMAGE_NAME: whitegecko/pyinstaller
+  DOCKERHUB_IMAGE_NAME: whitegecko/pyinstaller
+  GITHUB_IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   docker:
@@ -43,8 +44,8 @@ jobs:
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
           images: |
-            ${{ env.IMAGE_NAME }}
-            ghcr.io/${{ env.IMAGE_NAME }}
+            ${{ env.DOCKERHUB_IMAGE_NAME }}
+            ghcr.io/${{ env.GITHUB_IMAGE_NAME }}
           flavor: |
             latest=auto
             suffix=-${{matrix.python}}-${{matrix.architecture}},onlatest=true
