@@ -13,9 +13,10 @@ jobs:
       matrix:
         python: ["py3"]
         architecture: ["amd64", "i386", "win32", "win64"]
-        #include:
-        #  - python: "py2"
-        #    experimental: true
+        include:
+          - python: ["py2"]
+            architecture: ["amd64", "win32"]
+            experimental: true
 
     runs-on: ubuntu-latest
     steps:
