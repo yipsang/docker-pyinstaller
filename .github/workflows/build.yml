@@ -41,14 +41,14 @@ jobs:
       -
         name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+        uses: docker/metadata-action@v3.4.1
         with:
           images: |
             ${{ env.DOCKERHUB_IMAGE_NAME }}
             ghcr.io/${{ env.GITHUB_IMAGE_NAME }}
           flavor: |
             latest=auto
-            suffix=-${{matrix.python}}-${{matrix.architecture}}
+            suffix=-${{matrix.python}}-${{matrix.architecture}},onlatest=true
       -
         name: Build and push
         id: docker_build
